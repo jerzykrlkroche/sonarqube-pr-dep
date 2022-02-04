@@ -24,10 +24,6 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
 }
 
-ext {
-
-}
-
 sonarqube {
     properties {
         property "sonar.sourceEncoding", "UTF-8"
@@ -40,7 +36,16 @@ sonarqube {
         property 'sonar.qualitygate.wait', 'true'
         property 'sonar.coverage.jacoco.xmlReportPaths', '${project.buildDir}/reports/jacoco.xml'
         properties['sonar.sources'] += "build.gradle"
-        property 'sonar.login', "${sonarconfig-login}"
+        property 'sonar.login', System.properties['sonarconfig.login']
+    }
+}
+
+jacocoTestReport {
+    getExecutionData().setFrom(fileTree(buildDir).include("/jacoco/*.exec"))
+    dependsOn test
+    reports {
+        html.required = false
+        xml.required = true
     }
 }
 
