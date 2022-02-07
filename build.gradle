@@ -41,6 +41,7 @@ sonarqube {
         property 'sonar.coverage.jacoco.xmlReportPaths', '${project.buildDir}/reports/jacoco.xml'
         properties['sonar.sources'] += "build.gradle"
         property 'sonar.login', System.properties['sonarconfig.login']
+        property 'sonar.branch.name', 'check-my-branch'
     }
 }
 
