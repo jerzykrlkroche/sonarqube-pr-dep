@@ -48,7 +48,7 @@ sonarqube {
 
         property "sonar.pullrequest.key", "check-my-pr"
         property "sonar.pullrequest.branch", "check-my-pr"
-        property "sonar.pullrequest.base", "master"
+        property "sonar.pullrequest.base", "main"
     }
 }
 
