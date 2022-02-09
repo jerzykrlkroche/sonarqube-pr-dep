@@ -3,13 +3,13 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'org.owasp:dependency-check-gradle:6.4.1'
+        classpath 'org.owasp:dependency-check-gradle:6.3.1'
     }
 }
 
 plugins {
     id 'jacoco'
-    id "org.sonarqube" version "3.3"
+    id "org.sonarqube" version "3.1.1"
 }
 
 apply plugin: 'org.owasp.dependencycheck'
@@ -40,7 +40,7 @@ sonarqube {
         property 'sonar.dependencyCheck.reportPath', 'build/reports/dependency-check-report.xml'
         property 'sonar.dependencyCheck.xmlReportPath', 'build/reports/dependency-check-report.xml'
         property 'sonar.dependencyCheck.htmlReportPath', 'build/reports/dependency-check-report.html'
-        property 'sonar.dependencyCheck.jsonReportPath', 'build/reports/dependency-check-report.json'
+//        property 'sonar.dependencyCheck.jsonReportPath', 'build/reports/dependency-check-report.json'
         property 'sonar.qualitygate.wait', 'true'
         property 'sonar.coverage.jacoco.xmlReportPaths', '${project.buildDir}/reports/jacoco.xml'
         properties['sonar.sources'] += "build.gradle"
